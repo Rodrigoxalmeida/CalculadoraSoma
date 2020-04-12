@@ -1,15 +1,19 @@
 package gui;
 
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
 import gui.util.Alerts;
+import gui.util.Constraints;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class ViewController {
+public class ViewController implements Initializable{
 	
 	//colocar fxml nas variaveis para colocar na janela pelo scene builder
 	@FXML
@@ -45,6 +49,14 @@ public class ViewController {
 	@FXML
 	private void onBtSairActionn() {
 		System.exit(0);
+	}
+	@Override
+	public void initialize(URL url, ResourceBundle rb) {
+		Constraints.setTextFieldDouble(txtNumber1); // limitaçao somente para numeros
+		Constraints.setTextFieldDouble(txtNumber2);
+		Constraints.setTextFieldMaxLength(txtNumber1, 12); // limitação para ate 12 numeros 
+		Constraints.setTextFieldMaxLength(txtNumber2, 12);
+		
 	}
 	
 	
